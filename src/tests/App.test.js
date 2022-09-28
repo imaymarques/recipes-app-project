@@ -1,10 +1,68 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import App from '../App';
+import renderWithRouter from './RenderWithRouter';
 
-test('Farewell, front-end', () => {
-  // Este arquivo pode ser modificado ou deletado sem problemas
-  render(<App />);
-  const linkElement = screen.getByText(/TRYBE/i);
-  expect(linkElement).toBeInTheDocument();
+describe('Desenvolva testes para atingir cobertura total do APP', () => {
+  const EMAIL_INPUT = 'email-input';
+  const PASSWORD_INPUT = 'password-input';
+
+  test('Verifica se o input E-mail é renderizado', () => {
+    renderWithRouter(<App />);
+
+    const emailRender = screen.getByTestId(EMAIL_INPUT);
+
+    expect(emailRender).toBeInTheDocument();
+  });
+
+  test('Verifica se o input Password é renderizado', () => {
+    renderWithRouter(<App />);
+
+    const passwordRender = screen.getByTestId(PASSWORD_INPUT);
+
+    expect(passwordRender).toBeInTheDocument();
+  });
+  test('Verifica se o botão é renderizado', () => {
+    renderWithRouter(<App />);
+
+    const button = screen.getByRole('button', { name: /Enter/i });
+
+    expect(button).toBeInTheDocument();
+  });
+  test('Verifica se button esta desabilitado ao entrar na tela', () => {
+    renderWithRouter(<App />);
+
+    const button = screen.getByRole('button', { name: /Enter/i });
+
+    expect(button).toBeDisabled();
+  });
+  test('Verifica se button esta habilitado ao digitar email e senha', () => {
+    renderWithRouter(<App />);
+
+    const buttonHab = screen.getByRole('button', { name: /enter/i });
+    const emailLabel = screen.getByTestId(EMAIL_INPUT);
+    const passwordLabel = screen.getByTestId(PASSWORD_INPUT);
+    const emailtest = 'test@test.com';
+    const senhatest = '0987654';
+
+    userEvent.type(emailLabel, emailtest);
+    userEvent.type(passwordLabel, senhatest);
+
+    expect(buttonHab).toBeEnabled();
+  });
+
+  test('Verifica se é redirecionado para a página "Meals" após efetuar login', () => {
+    const { history } = renderWithRouter(<App />);
+
+    const button = screen.getByRole('button', { name: /enter/i });
+    const email = screen.getByTestId(EMAIL_INPUT);
+    const password = screen.getByTestId(PASSWORD_INPUT);
+
+    userEvent.type(email, 'test@test.com');
+    userEvent.type(password, '0987655');
+    userEvent.click(button);
+
+    expect(history.location.pathname).toBe('/meals');
+  });
 });
