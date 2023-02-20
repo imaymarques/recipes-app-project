@@ -29,9 +29,13 @@ Conclusão
 Este aplicativo de receitas é um exemplo de como o React e a Context API podem ser usados para criar um aplicativo interativo e responsivo que permite que os usuários visualizem e salvem suas receitas favoritas. O uso da Context API torna mais fácil gerenciar o estado global do aplicativo, permitindo que diferentes componentes compartilhem informações sem a necessidade de passar props repetidamente.
 
 Parceiros de grupo que me ajudaram a desenvolver esse projeto:
+
 --> <a href="https://github.com/PhilipLages" target="_blank" rel="noreferrer">Philip Lages</a>
+
 --> <a href="https://github.com/Leholive" target="_blank" rel="noreferrer">Letícia de Oliveira</a>
+
 --> <a href="https://github.com/SH-Kepler" target="_blank" rel="noreferrer">Sheifer Kepler</a>
+
 --> <a href="https://github.com/titi0001" target="_blank" rel="noreferrer">Thiago Pereira</a>
 _______________________________________________________________________________________________________________
 
@@ -68,6 +72,9 @@ This recipe application is an example of how React and Context API can be used t
 Group partners who helped me develop this project:
 
 --> <a href="https://github.com/PhilipLages" target="_blank" rel="noreferrer">Philip Lages</a>
+
 --> <a href="https://github.com/Leholive" target="_blank" rel="noreferrer">Letícia de Oliveira</a>
+
 --> <a href="https://github.com/SH-Kepler" target="_blank" rel="noreferrer">Sheifer Kepler</a>
+
 --> <a href="https://github.com/titi0001" target="_blank" rel="noreferrer">Thiago Pereira</a>
